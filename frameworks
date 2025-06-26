@@ -1,0 +1,15 @@
+1、多语言构建系统
+  https://byby.dev/build-systems
+2、跨语言互调
+  python--c/c++:
+    https://realpython.com/python-bindings-overview/
+  java--c/c++:
+    JNI
+  Golang--c/c++:
+    CGO
+  Node.js--c/c++:
+    Node-API
+  c#--c/c++:
+    C++/CLI
+  php--c/c++:
+    PHP-CPP
