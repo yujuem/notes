@@ -1,7 +1,7 @@
 # 1、helm
 helm是一个k8s的包管理器，可以通过helm命令部署多个应用，而不是依次执行`kubectl apply`命令部署，简化了应用程序的部署、版本控制、可配置性。helm同时引入了内置对象、内置函数、变量、模板、流控制结构语句等内容，使得我们可以仅修改value.yaml来对整个软件配置进行调整。\
-https://developer.aliyun.com/article/1207395 \
-https://helm.sh/zh/docs/
+[helm入门](https://developer.aliyun.com/article/1207395) \
+[helm | docs](https://helm.sh/zh/docs/)
 
 # 2、kubernetes
 ## k8s基本概念
