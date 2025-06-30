@@ -1,0 +1,26 @@
+1、Ray Core
+
+Tasks: 
+无状态函数
+资源分配
+句柄传递
+多返回值与异步等待
+Generators
+任务取消
+任务调度
+故障恢复
+任务事件
+*函数嵌套调用
+
+Actors:
+有状态类/对象
+资源分配
+方法调用
+句柄传递
+Generators
+任务取消
+任务调度
+故障恢复
+任务事件
+*具名实例：Create、Get-Or-Greate、Lifetimes（detached实例生命周期独立于driver进程，需要手动kill）
+*终止实例：automatic、manual via actor handle、manual within actor method
