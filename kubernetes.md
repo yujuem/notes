@@ -1,4 +1,5 @@
-# 1、helm（k8s包管理器） 
+# 1、helm
+helm是一个k8s的包管理器，可以通过helm命令部署多个应用，而不是依次执行`kubectl apply`命令部署，简化了应用程序的部署、版本控制、可配置性。helm同时引入了内置对象、内置函数、变量、模板、流控制结构语句等内容，使得我们可以仅修改value.yaml来对整个软件配置进行调整。
 https://developer.aliyun.com/article/1207395 \
 https://helm.sh/zh/docs/
 
@@ -14,12 +15,20 @@ kubernetes中的资源对象可以简单分类为以下几种，这些对象都�
 | 策略对象 | SecurityContext、ResourceQuota、LimitRange |
 | 身份对象 | ServiceAccount、Role、ClusterRole |
 
+### Pod
+
+### 控制器
+
+### Service
+
+### 数据存储
+
 ## k8s集群管理
   ### 1）k8s集群对接执行机：
     将执行机上的/root/.kube/config文件替换为k8s集群中的kubeconfig文件
   ### 2）k8s集群日志落盘：
 
 ## 参考资料
-[Kubernetes 中的资源对象 · Kubernetes 中文指南——云原生应用架构实战手册 (jimmysong.io)](https://jimmysong.io/kubernetes-handbook/concepts/objects.html)
+[[Kubernetes 中的资源对象 · Kubernetes 中文指南——云原生应用架构实战手册 (jimmysong.io)](https://jimmysong.io/kubernetes-handbook/concepts/objects.html)](https://jimmysong.io/kubernetes-handbook/concepts/objects.html)
 [第二章：入门概念 — 图解K8S documentation (iswbm.com)](https://k8s.iswbm.com/chapters/p02.html#)
 [Kubernetes 文档 | Kubernetes](https://kubernetes.io/zh-cn/docs/home/)
