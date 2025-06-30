@@ -25,18 +25,18 @@ kubernetes中的资源对象可以简单分类为以下几种，这些对象都�
 
 ## k8s集群部署
 ### 1) k8s集群kubeadmin部署
-    0.清理k8s集群信息: \
+    清理k8s集群信息: \
       清理所有helm部署资源\
       强制删除docker容器\
       清理不再使用的docker卷\
       查询Linux系统`/proc/mounts`文件下当前挂载点信息，并umount`/var/lib/kubelet`和/var/lib/rancher`相关路径，删除k8s和rancher的核心挂载目录
-    10.kubeadmin环境托管rancher：\
+    kubeadmin环境托管rancher：\
       docker run -d --restart=unless-stopped -p 8082:80 -p 8146:443 --privileged rancher/rancher:v2.5.3
 ### 2) k8s集群rancher部署
 
-  ### 1）k8s集群对接执行机：
+### 3）k8s集群对接执行机
     将执行机上的/root/.kube/config文件替换为k8s集群中的kubeconfig文件
-  ### 2）k8s集群日志落盘：
+### 4）k8s集群日志落盘
 
 ## 参考资料
 [Kubernetes 中的资源对象 · Kubernetes 中文指南——云原生应用架构实战手册 (jimmysong.io)](https://jimmysong.io/kubernetes-handbook/concepts/objects.html) \
