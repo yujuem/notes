@@ -1,9 +1,9 @@
-python异步编程
+# python异步编程
 https://liaoxuefeng.com/books/python/async-io/index.html
-1、协程：
-在一个线程中实现子程序之间的切换，由程序自身控制，没有多线程切换的开销和加锁机制，多进程+协程可以获得极高的性能。
-Python通过生成器（generator）实现对协程的支持，包含yield关键字的函数被称为生成器，会返回一个可迭代的generator对象，可以使用for循环或者调用next()方法遍历generator对象提取结果，可以减少内存资源占用。
-
+## 协程
+在一个线程中实现子程序之间的切换，由程序自身控制，没有多线程切换的开销和加锁机制，多进程+协程可以获得极高的性能。  
+Python通过生成器（generator）实现对协程的支持，包含yield关键字的函数被称为生成器，会返回一个可迭代的generator对象，可以使用for循环或者调用next()方法遍历generator对象提取结果，可以减少内存资源占用。  
+```
 def consumer():
     r = ''
     while True:
@@ -25,12 +25,12 @@ def produce(c):
 
 c = consumer()
 produce(c)
-
-2、asyncio实现EventLoop执行协程
-asyncio.run()执行async函数的入口。
-asyncio.gather()同时调度多个async函数。
+```
+## asyncio实现EventLoop执行协程
+asyncio.run()执行async函数的入口。  
+asyncio.gather()同时调度多个async函数。  
 await语法用于async函数中调用另一个async函数，线程在await时并未等待，而去执行消息队列里的其他任务，等到返回结果时再执行下一行语句。
-
+```
 import asyncio
 import threading
 async def hello(name):
@@ -45,8 +45,9 @@ async def main():
     print(L)
 
 asyncio.run(main())
+```
 
-1、Ray Core
+## 1、Ray Core
 
 Tasks: 
 无状态函数
