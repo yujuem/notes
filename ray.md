@@ -1,51 +1,19 @@
 # python异步编程
-https://liaoxuefeng.com/books/python/async-io/index.html
+https://liaoxuefeng.com/books/python/async-io/index.html  
+
 ## 协程
 在一个线程中实现子程序之间的切换，由程序自身控制，没有多线程切换的开销和加锁机制，多进程+协程可以获得极高的性能。  
 Python通过生成器（generator）实现对协程的支持，包含yield关键字的函数被称为生成器，会返回一个可迭代的generator对象，可以使用for循环或者调用next()方法遍历generator对象提取结果，可以减少内存资源占用。  
-```
-def consumer():
-    r = ''
-    while True:
-        n = yield r
-        if not n:
-            return
-        print('[CONSUMER] Consuming %s...' % n)
-        r = '200 OK'
 
-def produce(c):
-    c.send(None)
-    n = 0
-    while n < 5:
-        n = n + 1
-        print('[PRODUCER] Producing %s...' % n)
-        r = c.send(n)
-        print('[PRODUCER] Consumer return: %s' % r)
-    c.close()
-
-c = consumer()
-produce(c)
-```
-## asyncio实现EventLoop执行协程
+## 使用asyncio
+asyncio的编程模型就是一个消息循环。asyncio模块内部实现了EventLoop，把需要执行的协程扔到EventLoop中执行，就实现了异步IO。  
 asyncio.run()执行async函数的入口。  
 asyncio.gather()同时调度多个async函数。  
-await语法用于async函数中调用另一个async函数，线程在await时并未等待，而去执行消息队列里的其他任务，等到返回结果时再执行下一行语句。
-```
-import asyncio
-import threading
-async def hello(name):
-    print("Hello %s! (%s)" % (name, threading.current_thread))
-    # 异步调用asyncio.sleep函数，await时不影响其他函数并发执行
-    await asyncio.sleep(1) 
-    print("Hello %s again! (%s)" % (name, threading.current_thread))
-    return name
+await语法用于async函数中调用另一个async函数，线程在await时并未等待，而去执行消息队列里的其他任务，等到返回结果时再执行下一行语句。  
 
-async def main():
-    L = await asyncio.gather(hello("Bob"), hello("Alice"))
-    print(L)
-
-asyncio.run(main())
-```
+## 使用aiohttp
+asyncio实现了TCP、UDP、SSL等协议，aiohttp则是基于asyncio实现的HTTP框架。  
+asyncio可以实现单线程并发IO操作，如果把asyncio用在服务器端，例如Web服务器，由于HTTP连接就是IO操作，因此可以用单线程+async函数实现多用户的高并发支持。  
 
 ## 1、Ray Core
 
